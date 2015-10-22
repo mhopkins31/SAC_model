@@ -9,8 +9,11 @@ init MCC=0, Mad2a=0
 
 #Conservation equations
 
-Cdc20 =Cdc20T - MCC
+Cdc20 = Cdc20T - MCC
+aux Cdc20 = Cdc20
+
 Mad2i = Mad2T - Mad2a - MCC
+aux Mad2i = Mad2i
 
 #ODEs
 
