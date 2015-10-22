@@ -1,0 +1,30 @@
+#Initial test model
+
+#Parameters
+
+p KT=1, Mad2T=1, Cdc20T=1
+p kon_MCC=10, koff_MCC=0.1
+
+init MCC=0, Mad2c=0
+
+#Conservation equations
+
+Cdc20 = Cdc20T - MCC
+aux Cdc20 = Cdc20
+
+Mad2o = Mad2T - Mad2c - MCC
+aux Mad2o = Mad2o
+
+#ODEs
+
+MCC' = kon_MCC*Mad2c*Cdc20 - koff_MCC*MCC
+
+Mad2c' = KT*Mad2o - kon_MCC*Mad2c*Cdc20
+
+#Solver settings
+
+@ TOTAL=10, METH=stiff, XHI=10, YLO=0, YHI=1, BOUND=1000, maxstorage=10000, dt=0.1
+
+#AUTO settings
+
+@ parmin=0, parmax=1, autoxmin=0, autoymin=0, autoxmax=1, autoymax=1, nmax=200000000, npr=1000, ds=-0.02, EPSS=10e-11, EPSU=10e-11, EPSL=10e-11
