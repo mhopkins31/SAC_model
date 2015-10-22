@@ -5,21 +5,21 @@
 p KT=1, Mad2T=1, Cdc20T=1
 p kon_MCC=10, koff_MCC=0.1
 
-init MCC=0, Mad2a=0
+init MCC=0, Mad2c=0
 
 #Conservation equations
 
 Cdc20 = Cdc20T - MCC
 aux Cdc20 = Cdc20
 
-Mad2i = Mad2T - Mad2a - MCC
-aux Mad2i = Mad2i
+Mad2o = Mad2T - Mad2c - MCC
+aux Mad2o = Mad2o
 
 #ODEs
 
-MCC' = kon_MCC*Mad2a*Cdc20 - koff_MCC*MCC
+MCC' = kon_MCC*Mad2c*Cdc20 - koff_MCC*MCC
 
-Mad2a' = KT*Mad2i - kon_MCC*Mad2a*Cdc20
+Mad2c' = KT*Mad2o - kon_MCC*Mad2c*Cdc20
 
 #Solver settings
 
